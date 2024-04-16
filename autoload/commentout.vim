@@ -66,7 +66,9 @@ endfunction
 
 function! commentout#ToggleComment() abort range
     let g:commentout_type = get(g:, 'commentout_type', '1')
-    let g:commentout_type = 1 ? g:commentout_type > 2 : g:commentout_type
+    if g:commentout_type > 2
+        let g:commentout_type = 1
+    endif
     let l:start = a:firstline
     let l:end = a:lastline
 
