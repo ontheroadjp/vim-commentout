@@ -6,8 +6,9 @@ function! s:get_comment_str() abort
                 \ || &ft == 'javascript'
                 \ || &ft == 'php'
         return "//"
-    elseif &filetype == 'bash'
-                \ || &ft == 'sh'
+    elseif &filetype == 'sh'
+                \ || &ft == 'bash'
+                \ || &ft == 'zsh'
                 \ || &ft == 'python'
                 \ || &ft == 'perl'
                 \ || &ft == 'ruby'
