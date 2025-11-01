@@ -13,6 +13,7 @@ function! s:get_comment_str() abort
                 \ || &ft == 'perl'
                 \ || &ft == 'ruby'
                 \ || &ft == 'R'
+                \ || &ft == 'toml'
         return "#"
     elseif &filetype == 'lisp'
         return ";"
