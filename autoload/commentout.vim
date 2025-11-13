@@ -129,3 +129,29 @@ function! commentout#DupLines() abort range
     call cursor(l:paste_start + 1, 0)
 endfunction
 
+function! commentout#ToggleBlockComment() abort
+    let l:winview = winsaveview()
+    normal! vip
+    let l:start = line("'<")
+    let l:end = line("'>")
+    call winrestview(l:winview)
+
+    let g:commentout_type = get(g:, 'commentout_type', '1')
+    if g:commentout_type > 2
+        let g:commentout_type = 1
+    endif
+
+    let l:style = s:get_comment_str()
+    if l:style == ''
+        echo 'not supported'
+    else
+        if getline(l:start) =~ '^\s*'.l:style
+            call s:remove_comment_str(l:start, l:end)
+        else
+            call s:add_comment_str(l:start, l:end)
+        endif
+    endif
+    call cursor(l:end, 0)
+    normal! <Esc>
+endfunction
+

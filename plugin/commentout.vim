@@ -10,3 +10,5 @@ nnoremap <Plug>(commentout-toggle) :call commentout#ToggleComment()<CR>
 vnoremap <Plug>(commentout-toggle) :call commentout#ToggleComment()<CR>
 nnoremap <Plug>(commentout-dup) :call commentout#DupLines()<CR>
 vnoremap <Plug>(commentout-dup) :call commentout#DupLines()<CR>
+
+nnoremap <silent> $ <Cmd>call commentout#ToggleBlockComment()<CR>
